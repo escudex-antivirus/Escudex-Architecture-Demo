@@ -5,6 +5,18 @@
 
 ---
 
+## 🛡️ Project Overview: What is Escudex?
+
+**Escudex** is a production-ready, high-performance security ecosystem designed to provide comprehensive protection for the modern Android user. This suite is not just a demo, but a fully functional integration of mobile security best practices and cloud-scale infrastructure.
+
+### Core Functionalities:
+* **Advanced AI-Powered Antivirus:** Features a 24/7 monitoring engine that automatically intercepts new downloads. It performs real-time integrity verification by comparing file hashes against a massive, cloud-synced database.
+* **Instant Anti-Theft Protocol:** Orchestrates a seamless link between a dedicated Web Control Panel and the Android device. Users can remotely track GPS coordinates, trigger high-decibel alarms, and perform instant system lockdowns via a low-latency **Firebase & AWS** bridge.
+* **Enterprise-Grade Identity Management:** Powered by **AWS Cognito**, the app features a robust authentication system. This architecture ensures high scalability and security for thousands of users while maintaining near-zero operational costs.
+* **Global-Ready Localization:** The app is fully localized into **6 languages**. By orchestrating AI translation agents, I implemented a comprehensive `strings.xml` architecture that allowed for high-fidelity internationalization (i18n) in a matter of days.
+
+---
+
 ## 🤖 The AI-Native Orchestration Advantage
 
 This project represents a shift from traditional coding to **Architect-Led AI Orchestration**. I managed a complete, interlinked ecosystem using a multi-agent prompting strategy:
@@ -12,6 +24,12 @@ This project represents a shift from traditional coding to **Architect-Led AI Or
 * **Strategic Prompt Chaining:** Orchestrated distinct AI agents to build modular components following strict **SOLID**, **Clean Architecture**, and **DRY** principles.
 * **Complex Dependency Resolution:** Directed AI through iterative loops to resolve deep integration conflicts between **AWS Amplify (Smithy)**, **Firebase**, and **Google Play Billing** during a full migration to **Kotlin 2.0** and **SDK 36**.
 * **Security-First Audit Loop:** As the Architect, I performed 100% code verification and security auditing, ensuring all generated logic complied with Android’s restricted APIs (`DevicePolicyManager`, `UsageStats`, `LocationServices`).
+
+---
+
+## 🗺 Anti-Theft System Architecture Diagram
+
+<img width="100%" alt="Escudex - System Architecture" src="https://github.com/user-attachments/assets/9b9f1fd5-680d-4c88-ac14-0e85a79bb4e8" />
 
 ---
 
@@ -77,11 +95,6 @@ The `/samples` directory contains curated logic demonstrating how I solved compl
 
 ---
 
-## 🗺 System Architecture Diagram
-
-<img width="100%" alt="Escudex - System Architecture" src="https://github.com/user-attachments/assets/9b9f1fd5-680d-4c88-ac14-0e85a79bb4e8" />
-
----
 
 ## ⚠️ Intellectual Property Notice
 
