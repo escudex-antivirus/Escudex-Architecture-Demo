@@ -1,11 +1,20 @@
-// SAMPLE: Reactive State Architecture & Orchestration
-// 
-// ARCHITECT'S NOTE: 
-// Managing global state in a security app is critical. I orchestrated this ViewModel 
-// to act as a Single Source of Truth (SSOT). By using StateFlow for persistent states 
-// (like user plans) and Channels for transient events (like purchase feedback), 
-// I ensured the UI remains reactive and bug-free across multiple fragments, 
-// preventing common state-desynchronization issues.
+/**
+ * SAMPLE 5: Reactive State Orchestration & Global SSOT (Single Source of Truth)
+ *
+ * * ARCHITECT'S STRATEGY: 
+ *
+ * Managing global state in a multi-module security app requires a centralized "Command Center." 
+ * I designed this ViewModel to enforce Unidirectional Data Flow (UDF), ensuring 
+ * the UI is a pure reflection of the underlying state.
+ *
+ * * AI ORCHESTRATION NOTE: 
+ *
+ * I orchestrated the AI agents to explicitly separate 'State' from 'Events'. 
+ * I corrected the LLM's initial tendency to use 'LiveData' (legacy) or shared flows 
+ * for UI events, directing it instead to use Channels to guarantee that transient 
+ * feedback (like purchase success) is only consumed once.
+ *
+ */
 
 class SharedViewModel(
     application: Application,
@@ -14,60 +23,78 @@ class SharedViewModel(
     private val sessionManager: SessionManager
 ) : AndroidViewModel(application) {
 
-    // ARCHITECTURAL ENFORCEMENT: 
-    // We use private MutableStateFlow and expose it as a read-only StateFlow.
-    // This strictly enforces Unidirectional Data Flow (UDF).
+    private val TAG = "SharedViewModel"
 
+    // ARCHITECTURAL ENFORCEMENT: 
+    // Utilizing private MutableStateFlow and exposing it as a read-only StateFlow.
+    // This prevents Fragments from modifying the state directly, a core UDF principle.
+    
     private val _currentUserPlan = MutableStateFlow(PlanType.FREE)
     val currentUserPlan: StateFlow<PlanType> = _currentUserPlan.asStateFlow()
 
-    // DECISION: Channels are used for one-time UI events (Snackbars, Toasts).
+    // DECISION: Channels are utilized for one-time UI 'Fire-and-Forget' events.
     // Unlike StateFlow, a Channel ensures the event is consumed only once, 
-    // preventing the "dialog pops up again on rotation" bug.
-
+    // preventing the "Toast/Dialog reappears on screen rotation" bug.
+    
     private val _purchaseStatusEvent = Channel<Boolean>()
     val purchaseStatusEvent = _purchaseStatusEvent.receiveAsFlow()
 
     /**
-     * Orchestrates the complex purchase verification flow.
-     * STRATEGY: This is a multi-step orchestration: 
-     * 1. Send token to Backend (AWS) -> 2. Acknowledge with Google Play -> 3. Update local session.
+     * ORCHESTRATION CASE STUDY: Distributed Purchase Verification.
+     * * Problem: A purchase must be verified by the AWS backend BEFORE 
+     * the Google Play Store acknowledges it as final.
+     * * Solution: A multi-step asynchronous orchestration loop.
      */
-
+     
     fun verifyPurchaseWithBackend(purchaseToken: String) {
+        
+        // Enforcing structured concurrency via viewModelScope.
+        
         viewModelScope.launch {
             try {
-                // Step 1: Securely validate with our AWS cloud infrastructure
-
+                
+                // STEP 1: Secure Cloud Validation.
+                // Guided the AI to treat our AWS Backend as the primary authority.
+                
                 apiManager.verifyPurchase(purchaseToken)
 
-                // Step 2: Only acknowledge with Google Play after our backend confirms
-
+                // STEP 2: Play Store Acknowledgment.
+                // We only commit to Google Play after our secure infrastructure confirms the token.
+                
                 billingManager.acknowledgePurchase(purchaseToken)
 
-                // Step 3: Atomic state update
-
+                // STEP 3: Atomic Local State Update.
+                // Persisting the plan locally and updating the SSOT simultaneously.
+                
                 sessionManager.saveUserPlan(PlanType.PREMIUM)
                 _currentUserPlan.value = PlanType.PREMIUM
                 
-                // Trigger UI feedback
-
+                // Triggers immediate, non-sticky UI feedback.
+                
                 _purchaseStatusEvent.send(true)
+
             } catch (e: Exception) {
-                Log.e(TAG, "Validation failed", e)
+                Log.e(TAG, "Multi-step validation failed: ${e.message}")
+                
+                // AI NOTE: Directed the LLM to implement a fail-safe event trigger 
+                // to inform the user without leaving the UI in a loading state.
+                
                 _purchaseStatusEvent.send(false)
             }
         }
     }
 
     /**
-     * DECISION: Centralized network monitoring.
-     * By having the ViewModel listen to connectivity changes, all fragments 
-     * automatically update their UI without individual observers, reducing overhead.
+     * STRATEGY: Centralized Resource Monitoring.
+     * I orchestrated this logic to reduce boilerplate in Fragments. By having 
+     * the ViewModel monitor system resources (Network, DB version, etc.), 
+     * the entire app becomes reactive to environmental changes automatically.
      */
-
+     
     private fun observeNetworkChanges() {
-
-        // Implementation logic using ConnectivityManager...
+        
+        // AI-Orchestrated implementation using ConnectivityManager.NetworkCallback
+        // to push updates through StateFlows for all active UI components.
+        
     }
 }
