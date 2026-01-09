@@ -1,4 +1,5 @@
-/**
+/*
+ *
  * SAMPLE 1: AI-Native Platform Engineering & SDLC 2.0 Infrastructure
  *
  * * ARCHITECT'S STRATEGY: 
@@ -13,6 +14,7 @@
  * that typically causes AI agents to hallucinate incompatible build scripts. 
  * By enforcing a centralized Version Catalog and a custom Resolution Strategy, 
  * I achieved a zero-technical-debt infrastructure.
+ *
  */
 
 plugins {
