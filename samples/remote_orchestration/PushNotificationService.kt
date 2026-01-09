@@ -1,4 +1,4 @@
-/**
+/*
  * SAMPLE 2: AI-Native Remote Command Orchestration (FCM Bridge)
  *
  * * ARCHITECT'S STRATEGY:
