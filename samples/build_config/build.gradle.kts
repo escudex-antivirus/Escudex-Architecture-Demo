@@ -1,5 +1,4 @@
 /*
- *
  * SAMPLE 1: AI-Native Platform Engineering & SDLC 2.0 Infrastructure
  *
  * * ARCHITECT'S STRATEGY: 
