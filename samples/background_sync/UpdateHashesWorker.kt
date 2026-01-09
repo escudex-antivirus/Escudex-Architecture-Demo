@@ -1,5 +1,4 @@
 /*
- *
  * SAMPLE 6: Resilient Background Synchronization (WorkManager Orchestration)
  *
  * * ARCHITECT'S STRATEGY: 
