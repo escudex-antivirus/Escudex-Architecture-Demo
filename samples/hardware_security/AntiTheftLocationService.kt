@@ -1,4 +1,5 @@
-/**
+/*
+ *
  * SAMPLE 3: High-Priority Hardware Orchestration (Anti-Theft GPS Protocol)
  *
  * * ARCHITECT'S STRATEGY:
