@@ -1,4 +1,4 @@
-/**
+/*
  * SAMPLE 4: High-Performance Malware Analysis & Scoped Storage Compliance
  *
  * * ARCHITECT'S STRATEGY: 
