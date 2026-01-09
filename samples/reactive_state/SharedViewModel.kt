@@ -1,5 +1,4 @@
 /*
- *
  * SAMPLE 5: Reactive State Orchestration & Global SSOT (Single Source of Truth)
  *
  * * ARCHITECT'S STRATEGY: 
