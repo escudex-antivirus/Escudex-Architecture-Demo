@@ -5,7 +5,7 @@
 
 ---
 
-## 🛡️ Project Overview: What is Escudex?
+##  Project Overview: What is Escudex?
 
 **Escudex** is a production-ready, high-performance security ecosystem designed to provide comprehensive protection for the modern Android user. This suite is not just a demo, but a fully functional integration of mobile security best practices and cloud-scale infrastructure.
 
@@ -17,7 +17,7 @@
 
 ---
 
-## 🤖 The AI-Native Orchestration Advantage
+##  The AI-Native Orchestration Advantage
 
 This project represents a shift from traditional coding to **Architect-Led AI Orchestration**. I managed a complete, interlinked ecosystem using a multi-agent prompting strategy:
 
@@ -27,13 +27,13 @@ This project represents a shift from traditional coding to **Architect-Led AI Or
 
 ---
 
-## 🗺 Anti-Theft System Architecture Diagram
+##  Anti-Theft System Architecture Diagram
 
 <img width="100%" alt="Escudex - System Architecture" src="https://github.com/user-attachments/assets/9b9f1fd5-680d-4c88-ac14-0e85a79bb4e8" />
 
 ---
 
-## 🎨 Premium UX & Performance Engineering
+##  Premium UX & Performance Engineering
 
 In security, trust is established through the interface. Escudex combines aesthetic excellence with high-efficiency graphics code:
 
@@ -41,14 +41,10 @@ In security, trust is established through the interface. Escudex combines aesthe
 * **Modern Material 3:** Adherence to the latest Google design systems with custom-designed assets and native-feel interactions.
 * **Resource-Aware UX:** UI logic is strictly decoupled from heavy security processing (IO/Hashing), ensuring consistent 60fps performance even during deep system scans.
 
-> [!TIP]
-> **🎥 [LINK TO DEMO VIDEO]**
-> 
-> *Observe the mathematical fluidity of the transitions and the execution of remote commands—including GPS tracking, Alarms, and System Lockdown—in real-time.*
 
 ---
 
-## 🏗 Architectural Integrity & Tech Stack
+##  Architectural Integrity & Tech Stack
 
 The app is engineered for scale, performance, and resilient cross-platform communication:
 
@@ -63,7 +59,7 @@ The app is engineered for scale, performance, and resilient cross-platform commu
 
 ---
 
-## 🔍 Featured Code Slices (Architectural Case Studies)
+##  Featured Code Slices (Architectural Case Studies)
 
 The `/samples` directory contains curated logic demonstrating how I solved complex Android hurdles through expert AI supervision. **Each sample includes Senior-Level annotations explaining architectural decisions.**
 
